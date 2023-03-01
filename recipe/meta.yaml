@@ -1,4 +1,4 @@
-{% set version = "2.13.1" %}
+{% set version = "2.14" %}
 
 package:
   name: jansson
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/akheron/jansson/archive/v{{ version }}.tar.gz
-  sha256: f22901582138e3203959c9257cf83eba9929ac41d7be4a42557213a22ebcc7a0
+  sha256: c739578bf6b764aa0752db9a2fdadcfe921c78f1228c7ec0bb47fa804c55d17b
 
 build:
   number: 0
@@ -26,14 +26,17 @@ requirements:
 
 test:
   commands:
-    - test ! -f ${PREFIX}/lib/libjansson.a  # [unix]
+    - test ! -f ${PREFIX}/lib/libjansson.a          # [unix]
     - test -f ${PREFIX}/lib/libjansson${SHLIB_EXT}  # [unix]
 
 about:
   home: https://github.com/akheron/jansson
   license: MIT
+  license_family: MIT
   license_file: LICENSE
   summary: 'Jansson is a C library for encoding, decoding and manipulating JSON data.'
+  doc_url: https://jansson.readthedocs.io/en/latest/
+  dev_url: https://github.com/akheron/jansson
 
 extra:
   recipe-maintainers:
