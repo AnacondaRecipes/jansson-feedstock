@@ -26,9 +26,10 @@ requirements:
 
 test:
   commands:
-    - test ! -f ${PREFIX}/lib/libjansson.a          # [unix]
-    - test -f ${PREFIX}/lib/libjansson${SHLIB_EXT}  # [unix]
-
+    - test ! -f ${PREFIX}/lib/libjansson.a            # [unix]
+    - test -f ${PREFIX}/lib/libjansson${SHLIB_EXT}    # [unix]
+    - IF NOT EXIST %LIBRARY_BIN%\\jansson.dll exit 1  # [win]
+    
 about:
   home: https://github.com/akheron/jansson
   license: MIT
