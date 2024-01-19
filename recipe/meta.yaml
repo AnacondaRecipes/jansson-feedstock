@@ -33,8 +33,9 @@ test:
     - IF NOT EXIST %LIBRARY_BIN%\\jansson.dll exit 1     # [win]
     # check if the import library exists
     - IF NOT EXIST %LIBRARY_LIB%\\jansson.lib exit 1     # [win]
+    - lib.exe  # [win]
     # check if the produced lib file is an import library (ok) or a static library (not ok)
-    - LIB /LIST %LIBRARY_LIB%\jansson.lib | find ".obj" >nul && (echo "Error static .lib found" & exit /b 1) || exit /b 0  # [win]
+    - lib.exe /LIST %LIBRARY_LIB%\jansson.lib | find ".obj" >nul && (echo "Error static .lib found" & exit /b 1) || exit /b 0  # [win]
     
 about:
   home: https://github.com/akheron/jansson
