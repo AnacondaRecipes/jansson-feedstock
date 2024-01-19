@@ -30,9 +30,9 @@ test:
     - test ! -f ${PREFIX}/lib/libjansson.a               # [unix]
     - test -f ${PREFIX}/lib/libjansson${SHLIB_EXT}       # [unix]
     # check if the dynamic library exists
-    - IF NOT EXIST %LIBRARY_BIN%\\jansson.dll exit 1     # [win]
+    - IF NOT EXIST %LIBRARY_BIN%\jansson.dll exit 1     # [win]
     # check if the import library exists
-    - IF NOT EXIST %LIBRARY_LIB%\\jansson.lib exit 1     # [win]
+    - IF NOT EXIST %LIBRARY_LIB%\jansson.lib exit 1     # [win]
     # check if the produced lib file is an import library (ok) or a static library (not ok)
     # - lib.exe /LIST %LIBRARY_LIB%\jansson.lib > out.txt  # [win]
     # - find ".obj" out.txt >nul && (echo "Error static .lib found" & exit /b 1) || exit /b 0  # [win]
