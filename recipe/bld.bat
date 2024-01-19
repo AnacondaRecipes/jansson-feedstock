@@ -2,8 +2,12 @@ mkdir "%SRC_DIR%"\build
 pushd "%SRC_DIR%"\build
 
 cmake -G "Ninja" ^
-      -DBUILD_SHARED_LIBS=ON ^
       -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" ^
+      -DCMAKE_BUILD_TYPE=Release ^
+      -DJANSSON_BUILD_SHARED_LIBS=ON ^
+      -DJANSSON_BUILD_DOCS=OFF ^
+      -DJANSSON_EXAMPLES=OFF ^
+      %CMAKE_ARGS% ^
       ..
 if errorlevel 1 exit 1
 
