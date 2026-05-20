@@ -1,29 +1,29 @@
 {% set name = "jansson" %}
-{% set version = "2.14" %}
+{% set version = "2.15.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://github.com/akheron/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c739578bf6b764aa0752db9a2fdadcfe921c78f1228c7ec0bb47fa804c55d17b
+  url: https://github.com/akheron/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 73ac12bbc62ff536e40c7a3e15ed007993c5ca4d23897de23f1906f891b5a4bb
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('jansson', max_pin='x') }}
 
 requirements:
   build:
+    - {{ stdlib('c') }}
+    - {{ compiler('c') }}
     - automake  # [not win]
     - autoconf  # [not win]
-    - libtool   # [not win]
-    - make      # [not win]
-    - cmake     # [win]
-    - ninja     # [win]
-    - {{ compiler('c') }}
-  host:
+    - libtool  # [not win]
+    - make  # [not win]
+    - cmake  # [win]
+    - ninja-base  # [win]
 
 test:
   commands:
