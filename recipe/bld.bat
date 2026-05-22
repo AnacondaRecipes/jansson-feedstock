@@ -7,6 +7,7 @@ cmake -G "Ninja" ^
       -DJANSSON_BUILD_SHARED_LIBS=ON ^
       -DJANSSON_BUILD_DOCS=OFF ^
       -DJANSSON_EXAMPLES=OFF ^
+      -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ^
       %CMAKE_ARGS% ^
       ..
 if errorlevel 1 exit 1

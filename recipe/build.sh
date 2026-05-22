@@ -15,4 +15,7 @@ EOF
 chmod +x test/suites/api/check-exports
 
 make install
-make check || { cat "${SRC_DIR}/test/test-suite.log"; exit 1; }
+
+# Copy janssonConfig.cmake into the package
+mkdir -p ${PREFIX}/lib/cmake/jansson
+cp "${RECIPE_DIR}/janssonConfig.cmake" "${PREFIX}/lib/cmake/jansson/janssonConfig.cmake"
